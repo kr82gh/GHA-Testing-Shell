@@ -1,0 +1,25 @@
+name: Push Scan
+
+on: 
+  push:
+
+
+permissions:
+ contents: write
+
+jobs: 
+  k8s-run:
+    name: k8-run
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout-stuff
+      uses: actions/checkout@7
+
+    - name: always-run
+      if: always ()
+      run: | 
+        echo "logging out" 
+
+ 
