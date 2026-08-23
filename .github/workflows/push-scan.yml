@@ -7,21 +7,16 @@ permissions:
  contents: write
 
 jobs: 
-  k8s-run:
-    name: k8-run
+  checkov-scan:
+    name: checkov-scan
 
     runs-on: ubuntu-latest
 
     steps:
     - name: checkout-stuff
       uses: actions/checkout@v7 #Must have the "v" for  version 
-
-    - name: always-run
-      if: always ()
+    
+    - name: install-checkov
       run: | 
-        echo "logging out" 
-
-    container: 
-      image: bridgecrew/checkov
-
+             pip3 install checkov 
 
