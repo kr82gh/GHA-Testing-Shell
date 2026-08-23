@@ -3,7 +3,6 @@ name: Push Scan
 on: 
   push:
 
-
 permissions:
  contents: write
 
@@ -22,4 +21,3 @@ jobs:
       run: | 
         echo "logging out" 
 
- 
