@@ -1,4 +1,4 @@
 # GHA-Testing-Shell
-Git Actions Testing shell
+## Git Actions Testing shell
 
-Repo to test different configuration 
+Repo to test different configurations. 
