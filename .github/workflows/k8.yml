@@ -1,0 +1,25 @@
+name: K8 config
+
+permissions:
+ contents: read
+
+on: 
+    workflow_dispatch:
+        inputs:
+            CM-Check:
+                description: "Which CM ?"
+                required: true
+                type: string
+
+jobs:
+    check-input:
+        name: Check Input
+        continue-on-error: false
+        runs-on: self-hosted
+        env:
+            CM: ${{inputs.CM-Check}}
+        steps:
+            - name: Check Input
+              run: |
+                echo $CM
+
