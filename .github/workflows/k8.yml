@@ -22,6 +22,15 @@ jobs:
             - name: Check Input
               run: |
                 echo $CM
+    get-cm:
+        name: Get Config Map
+        continue-on-error: false
+        runs-on: self-hosted
+        needs: [check-input]
+        steps:
+            - name: Get CM
+              run: |
+                kubectl get cm kube-proxy -n kube-system -o=yaml > kube-proxy-`date +%F`.yml
 
             - name: Get CM
               run: |
