@@ -12,6 +12,7 @@ on:
                 type: string
 
 jobs:
+  
     check-input:
         name: Check Input
         continue-on-error: false
@@ -22,17 +23,18 @@ jobs:
             - name: Check Input
               run: |
                 echo $CM
+    
     get-cm:
         name: Get Config Map
         continue-on-error: false
         runs-on: self-hosted
         needs: [check-input]
         steps:
+            - name: checkout-stuff
+              uses: actions/checkout@v4 #Must have the "v" for  version 
             - name: Get CM
               run: |
                 kubectl get cm kube-proxy -n kube-system -o=yaml > kube-proxy-`date +%F`.yml
-
-            - name: Get CM
+            - name: diff
               run: |
-                kubectl get cm kube-proxy -n kube-system
-
+                diff yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
