@@ -1,22 +1,21 @@
-name: Push Scan
-
-on: 
-  push:
-
-permissions:
- contents: write
-
-jobs: 
-  checkov-scan:
-    name: checkov-scan
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: checkout-stuff
-      uses: actions/checkout@v7 #Must have the "v" for  version 
-    
-    - name: install-checkov
-      run: | 
-             pip3 install checkov 
+#name: Push Scan
+#
+#on: 
+#  push:
+#
+#permissions:
+#contents: write
+#jobs: 
+#  checkov-scan:
+#    name: checkov-scan
+#
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#    - name: checkout-stuff
+#      uses: actions/checkout@v7 #Must have the "v" for  version 
+#    
+#    - name: install-checkov
+#      run: | 
+#             pip3 install checkov 
 
