@@ -42,10 +42,10 @@ jobs:
                 kubectl get cm kube-proxy -n kube-system -o=yaml > kube-proxy-`date +%F`.yml
             - name: CM Diff
               run: |
-                ./dyff between yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
+                ./dyff between yaml/kube-proxy.yml kube-proxy-`date +%F`.yml | tee >> $GITHUB_STEP_SUMMARY
 
     review-diff:
-        name: Get Config Map
+        name: Review Diff
         continue-on-error: false
         runs-on: self-hosted
         needs: [get-cm]
