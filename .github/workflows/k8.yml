@@ -43,3 +43,14 @@ jobs:
             - name: CM Diff
               run: |
                 ./dyff between yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
+
+    review-diff:
+        name: Get Config Map
+        continue-on-error: false
+        runs-on: self-hosted
+        needs: [get-cm]
+        environment: lab 
+        steps:
+           - name : check-the-dyff
+             run: |
+              echo "Check the dyff"
