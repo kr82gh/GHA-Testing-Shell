@@ -42,4 +42,4 @@ jobs:
                 kubectl get cm kube-proxy -n kube-system -o=yaml > kube-proxy-`date +%F`.yml
             - name: CM Diff
               run: |
-                ./dyff yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
+                ./dyff between yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
