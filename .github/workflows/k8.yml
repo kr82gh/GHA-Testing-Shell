@@ -32,11 +32,13 @@ jobs:
         steps:
             - name: checkout-stuff
               uses: actions/checkout@v4 #Must have the "v" for  version 
+            - name: Get Dyff
+              run: |
+                wget  https://github.com/homeport/dyff/releases/download/v1.12.0/dyff_1.12.0_linux_amd64.tar.gz 2> /dev/null
+                tar -zvxf dyff_1.12.0_linux_amd64.tar.gz 
+                chmod +x dyff
             - name: Get CM
               run: |
-                curl  https://github.com/homeport/dyff/releases/download/v1.12.0/dyff_1.12.0_linux_arm64.tar.gz > dyff.tar.gz
-                tar -zvxf dyff.tar.gz
-                chmod +x dyff
                 kubectl get cm kube-proxy -n kube-system -o=yaml > kube-proxy-`date +%F`.yml
             - name: diff
               run: |
