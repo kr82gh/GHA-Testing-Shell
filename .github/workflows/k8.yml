@@ -41,6 +41,3 @@ jobs:
             - name: diff
               run: |
                 diff yaml/kube-proxy.yml kube-proxy-`date +%F`.yml
-            - name: cleanup
-              run: always()
-
