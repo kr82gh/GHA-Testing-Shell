@@ -1,0 +1,12 @@
+- name: Update Iptables 
+  hosts: 172.21.0.79
+  become: true
+  tasks:
+    - name: any-net-8443
+      ansible.builtin.iptables:
+      chain: INPUT
+      protocol: tcp 
+      source: 0.0.0.0
+      destination_port: 8443
+      jump: ACCEPT
+      comment: allow 8443 from any
