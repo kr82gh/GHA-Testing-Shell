@@ -4,9 +4,10 @@
   tasks:
     - name: any-net-8443
       ansible.builtin.iptables:
-      chain: INPUT
-      protocol: tcp 
-      source: 0.0.0.0
-      destination_port: 8443
-      jump: ACCEPT
-      comment: allow 8443 from any
+        chain: INPUT
+        protocol: tcp 
+        source: 0.0.0.0
+        destination_port: 8443
+        jump: ACCEPT
+        action: append
+        comment: allow 8443 from any
