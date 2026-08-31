@@ -1,5 +1,5 @@
 - name: Update Iptables 
-  hosts: 172.21.0.79
+  hosts: all
   become: true
   tasks:
     - name: any-net-8443
