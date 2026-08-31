@@ -18,9 +18,10 @@ jobs:
         continue-on-error: false
         runs-on: self-hosted
         steps:
-            - name: install
+            - name: checkout-stuff
+              uses: actions/checkout@v4 #Must have the "v" for  version  
+            - name: run ansible 
               run: |
-                pip install ansible jmespath
                 ansible-playbook yaml/ansible/iptables-playbook.yml
 
     
