@@ -1,0 +1,30 @@
+name: Lint Playbook
+
+permissions:
+ contents: read
+
+on: 
+    push:
+       branches:
+        - '**ansible**'
+
+jobs:
+  
+    AnsibleLint:
+        name: Ansible Lint
+        continue-on-error: false
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout-stuff
+              uses: actions/checkout@v4 #Must have the "v" for  version  
+            - name: install requirements 
+              run: |
+                python3 -m venv gha-run
+                source gha-run/bin/activate
+                pip install --upgrade
+                pip install ansible-core ansible-lint
+            - name: Lint
+              run: |
+                ansible-lint --color=yes yaml/ansible/*
+
+    
