@@ -23,6 +23,6 @@ jobs:
                 source gha-run/bin/activate
                 pip install --upgrade pip
                 pip install ansible-core ansible-lint
-                ansible-lint --color=yes yaml/ansible/*
+                ansible-lint yaml/ansible/*
 
     
