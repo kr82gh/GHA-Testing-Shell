@@ -1,4 +1,4 @@
-- name: Update Iptables 
+- name: Update Iptables
   hosts: all
   become: true
   tasks:
